@@ -122,7 +122,7 @@ func ExtractRelevant(flags ParsedFlags) (*Relevant, error) {
 
 		var basicAuth BasicAuth
 		if len(cmdProxyUser) > 0 {
-			basicAuthString := cmdProxy[len(cmdProxyUser)-1]
+			basicAuthString := cmdProxyUser[len(cmdProxyUser)-1]
 
 			if basicAuthSplit := strings.Index(basicAuthString, ":"); basicAuthSplit > -1 {
 				basicAuth.User = basicAuthString[:basicAuthSplit]

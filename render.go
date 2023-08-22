@@ -49,16 +49,23 @@ func (rd *Render) Curl2Go(curl string) (string, error) {
 }
 
 func (rd *Render) Render(r *Relevant) (string, error) {
+	// Parse the "go.tpl" template from the templates.FS file system
 	t, err := template.ParseFS(templates.FS, "go.tpl")
 	if err != nil {
+		// If there is an error parsing the template, return an empty string and the error
 		return "", err
 	}
 
+	// Create a new buffer to store the rendered template
 	buf := new(bytes.Buffer)
+
+	// Execute the template, passing in the relevant data and write the output to the buffer
 	err = t.Execute(buf, r)
 	if err != nil {
+		// If there is an error executing the template, return an empty string and the error
 		return "", err
 	}
 
+	// Convert the buffer to a string and return it along with no error
 	return buf.String(), nil
 }

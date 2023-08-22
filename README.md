@@ -1,5 +1,5 @@
 # curl2go
-Convert curl to golang code
+Convert curl to golang code. Inspired By [mholt/curl-to-go](https://github.com/mholt/curl-to-go)
 
 Usage:
 ```shell
@@ -63,6 +63,4 @@ func main() {
 
         fmt.Println(string(data))
 }
-```
-
 ```
